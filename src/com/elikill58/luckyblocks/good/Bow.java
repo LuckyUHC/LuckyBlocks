@@ -1,0 +1,13 @@
+package com.elikill58.luckyblocks.good;
+
+import org.bukkit.Material;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.inventory.ItemStack;
+
+public class Bow implements GoodLuckyBlock {
+
+	@Override
+	public void run(BlockBreakEvent e) {
+		e.getBlock().getWorld().dropItemNaturally(e.getBlock().getLocation(), new ItemStack(Material.BOW));
+	}
+}
