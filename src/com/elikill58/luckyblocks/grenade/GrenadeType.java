@@ -9,22 +9,22 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import fr.zonefun.api.spigot.APIUtils;
-import fr.zorahosting.luckyuhc.core.Utils;
+import com.elikill58.api.builders.ItemStackBuilder;
+import com.elikill58.api.utils.Utils;
 
 public enum GrenadeType {
 
-	REPULSIVE(true, "&rRepulsive", Utils.createItem(Material.NETHER_STAR, ChatColor.RESET + "Repulsive Grenade")),
-	BAD_REPULSIVE(false, "&rRepulsive Bad", Utils.createItem(Material.NETHER_STAR, ChatColor.RESET + "Bad Repulsive Grenade"));
+	REPULSIVE(true, "&rRepulsive", ChatColor.RESET + "Repulsive Grenade"),
+	BAD_REPULSIVE(false, "&rRepulsive Bad", ChatColor.RESET + "Bad Repulsive Grenade");
 	
 	private boolean isGood;
 	private String name;
 	private ItemStack item;
 	
-	private GrenadeType(boolean isGood, String name, ItemStack item) {
+	private GrenadeType(boolean isGood, String name, String itemName) {
 		this.isGood = isGood;
-		this.name = APIUtils.applyColorCodes(name);
-		this.item = item;
+		this.name = Utils.applyColorCodes(name);
+		this.item = new ItemStackBuilder(Material.NETHER_STAR).displayName(itemName).build();
 	}
 	
 	public boolean isGood() {

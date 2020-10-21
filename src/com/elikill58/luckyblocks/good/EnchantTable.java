@@ -4,12 +4,12 @@ import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class EnchantTable implements GoodLuckyBlock {
+public class EnchantTable extends GoodLuckyBlock {
 
 	@Override
 	public void run(BlockBreakEvent e) {
 		e.getBlock().getWorld().dropItemNaturally(e.getPlayer().getLocation(),
-				new ItemStack(Material.ENCHANTMENT_TABLE));
+				new ItemStack(Material.ENCHANTING_TABLE));
 	}
 
 }

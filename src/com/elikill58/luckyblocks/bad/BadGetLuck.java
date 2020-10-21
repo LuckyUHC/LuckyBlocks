@@ -2,9 +2,9 @@ package com.elikill58.luckyblocks.bad;
 
 import org.bukkit.event.block.BlockBreakEvent;
 
-import fr.zonefun.gameapi.GameAPI;
+import com.elikill58.api.game.GameAPI;
 
-public class BadGetLuck implements BadLuckyBlock {
+public class BadGetLuck extends BadLuckyBlock {
 
 	@Override
 	public void run(BlockBreakEvent e) {

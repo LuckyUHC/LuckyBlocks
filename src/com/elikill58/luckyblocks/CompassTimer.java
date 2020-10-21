@@ -15,6 +15,7 @@ import org.bukkit.util.Vector;
 
 public class CompassTimer extends BukkitRunnable {
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void run() {
 		for (Player p : Bukkit.getOnlinePlayers()) {

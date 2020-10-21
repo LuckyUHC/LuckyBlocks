@@ -26,7 +26,7 @@ public class GrenadeManager implements Listener {
 			return;
 		if (type.equals(GrenadeType.REPULSIVE) || type.equals(GrenadeType.BAD_REPULSIVE)) {
 			explosionLoc.add(0, 1, 0);
-			p.getWorld().playEffect(explosionLoc, Effect.EXPLOSION_LARGE, POWER_EXPLOSION);
+			p.getWorld().playEffect(explosionLoc, Effect.SMOKE, POWER_EXPLOSION);
 			for (Entity et : p.getWorld().getEntities()) {
 				if (et.getLocation().distance(explosionLoc) < POWER_EXPLOSION) {
 					if(type.isGood())
@@ -60,6 +60,7 @@ public class GrenadeManager implements Listener {
 			}
 	}
 
+	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onInteract(PlayerInteractEvent e) {
 		Player p = e.getPlayer();

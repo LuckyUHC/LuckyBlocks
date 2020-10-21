@@ -5,7 +5,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.block.BlockBreakEvent;
 
-public class SpawnSpider implements BadLuckyBlock {
+public class SpawnSpider extends BadLuckyBlock {
 
 	@Override
 	public void run(BlockBreakEvent e) {

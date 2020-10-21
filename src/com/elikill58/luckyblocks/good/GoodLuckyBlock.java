@@ -1,8 +1,7 @@
 package com.elikill58.luckyblocks.good;
 
-import org.bukkit.event.block.BlockBreakEvent;
+import com.elikill58.luckyblocks.LuckyBlockAbstract;
 
-public interface GoodLuckyBlock {
+public abstract class GoodLuckyBlock extends LuckyBlockAbstract {
 	
-	void run(BlockBreakEvent e);
 }

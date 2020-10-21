@@ -5,7 +5,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 
 import com.elikill58.luckyblocks.LuckyBlocks;
 
-public class ObsidianCage implements BadLuckyBlock {
+public class ObsidianCage extends BadLuckyBlock {
 
 	@Override
 	public void run(BlockBreakEvent e) {

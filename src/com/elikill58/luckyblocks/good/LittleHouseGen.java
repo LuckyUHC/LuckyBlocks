@@ -20,7 +20,7 @@ import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.bukkit.BukkitWorld;
 
 @SuppressWarnings("deprecation")
-public class LittleHouseGen implements GoodLuckyBlock {
+public class LittleHouseGen extends GoodLuckyBlock {
 
 	@Override
 	public void run(BlockBreakEvent e) {
@@ -50,9 +50,9 @@ public class LittleHouseGen implements GoodLuckyBlock {
 			for (int x = fX; x != (fX + 8); x++)
 				for (int z = (fZ - 3); z != (fZ + 6); z++) {
 					Block b2 = b.getWorld().getBlockAt(x, y, z);
-					if (b2.getType().equals(Material.ENDER_STONE))
+					if (b2.getType().equals(Material.END_STONE))
 						b2.setType(list.get(new Random().nextInt(list.size())));
-					else if (b2.getType().equals(Material.CHEST) && new Location(b2.getWorld(), x, y - 1, z).getBlock().getType().equals(Material.MELON_BLOCK)) {
+					else if (b2.getType().equals(Material.CHEST) && new Location(b2.getWorld(), x, y - 1, z).getBlock().getType().equals(Material.MELON)) {
 						Chest c = (Chest) b2.getState();
 						c.getInventory().setContents(getRandomStuff(c.getInventory().getContents().length));
 						c.update();
@@ -102,7 +102,7 @@ public class LittleHouseGen implements GoodLuckyBlock {
 					if (slot >= size)
 						slot = 0;
 				}
-				items[slot] = new ItemStack(Material.ENCHANTMENT_TABLE, amount = r.nextInt(2) + 1);
+				items[slot] = new ItemStack(Material.ENCHANTING_TABLE, amount = r.nextInt(2) + 1);
 				i -= amount;
 			}
 			if (Math.random() * 100 > 18) {
@@ -123,7 +123,7 @@ public class LittleHouseGen implements GoodLuckyBlock {
 		ItemStack item = null;
 		switch (new Random().nextInt(14)) {
 		case 0:
-			item = new ItemStack(Material.GOLD_CHESTPLATE);
+			item = new ItemStack(Material.GOLDEN_CHESTPLATE);
 			item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
 			break;
 		case 1:
@@ -134,7 +134,7 @@ public class LittleHouseGen implements GoodLuckyBlock {
 			item = new ItemStack(Material.DIAMOND_CHESTPLATE);
 			break;
 		case 3:
-			item = new ItemStack(Material.GOLD_PICKAXE);
+			item = new ItemStack(Material.GOLDEN_PICKAXE);
 			item.addUnsafeEnchantment(Enchantment.DIG_SPEED, 1);
 			item.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
 			break;
@@ -169,7 +169,7 @@ public class LittleHouseGen implements GoodLuckyBlock {
 			item = new ItemStack(Material.DIAMOND_LEGGINGS);
 			break;
 		case 12:
-			item = new ItemStack(Material.GOLD_LEGGINGS);
+			item = new ItemStack(Material.GOLDEN_LEGGINGS);
 			item.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
 			item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
 			break;

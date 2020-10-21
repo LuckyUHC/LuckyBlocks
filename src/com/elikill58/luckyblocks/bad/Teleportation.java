@@ -5,7 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
 
-public class Teleportation implements BadLuckyBlock {
+public class Teleportation extends BadLuckyBlock {
 
 	@Override
 	public void run(BlockBreakEvent e) {

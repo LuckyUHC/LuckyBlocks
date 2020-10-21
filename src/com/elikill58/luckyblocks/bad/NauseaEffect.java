@@ -4,7 +4,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class NauseaEffect implements BadLuckyBlock {
+public class NauseaEffect extends BadLuckyBlock {
 
 	@Override
 	public void run(BlockBreakEvent e) {

@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import com.elikill58.luckyblocks.LuckyBlocks;
 import com.elikill58.luckyblocks.Rain;
 
-public class RainIngot implements GoodLuckyBlock {
+public class RainIngot extends GoodLuckyBlock {
 	
 	private ArrayList<ItemStack> items = new ArrayList<>();
 	

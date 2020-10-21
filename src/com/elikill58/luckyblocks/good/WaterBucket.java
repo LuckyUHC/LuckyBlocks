@@ -4,7 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class WaterBucket implements GoodLuckyBlock {
+public class WaterBucket extends GoodLuckyBlock {
 
 	@Override
 	public void run(BlockBreakEvent e) {

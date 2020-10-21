@@ -1,8 +1,7 @@
 package com.elikill58.luckyblocks.neutral;
 
-import org.bukkit.event.block.BlockBreakEvent;
+import com.elikill58.luckyblocks.LuckyBlockAbstract;
 
-public interface NeutralLuckyBlock {
+public abstract class NeutralLuckyBlock extends LuckyBlockAbstract {
 	
-	void run(BlockBreakEvent e);
 }

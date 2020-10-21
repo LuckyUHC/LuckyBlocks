@@ -7,17 +7,14 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.reflections.Reflections;
-import org.reflections.scanners.SubTypesScanner;
-import org.reflections.util.ClasspathHelper;
 
+import com.elikill58.api.UniversalUtils;
 import com.elikill58.luckyblocks.bad.BadLuckyBlock;
 import com.elikill58.luckyblocks.good.GoodLuckyBlock;
 import com.elikill58.luckyblocks.grenade.GrenadeManager;
@@ -29,9 +26,9 @@ public class LuckyBlocks extends JavaPlugin {
 	public static LuckyBlocks INSTANCE;
 	
 	public static boolean runGrenade = true;
-	private static List<GoodLuckyBlock> goodLuckyBlocks = new ArrayList<>();
-	private static List<NeutralLuckyBlock> neutralLuckyBlocks = new ArrayList<>();
-	private static List<BadLuckyBlock> badLuckyBlocks = new ArrayList<>();
+	private static List<LuckyBlockAbstract> goodLuckyBlocks = new ArrayList<>();
+	private static List<LuckyBlockAbstract> neutralLuckyBlocks = new ArrayList<>();
+	private static List<LuckyBlockAbstract> badLuckyBlocks = new ArrayList<>();
 	
 	@Override
 	public void onEnable() {
@@ -45,34 +42,11 @@ public class LuckyBlocks extends JavaPlugin {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Reflections reflections = new Reflections(ClasspathHelper.forClassLoader(getClass().getClassLoader()),
-				new SubTypesScanner());
 
-		Set<Class<? extends GoodLuckyBlock>> goodClasses = reflections.getSubTypesOf(GoodLuckyBlock.class);
-		Set<Class<? extends NeutralLuckyBlock>> neutralClasses = reflections.getSubTypesOf(NeutralLuckyBlock.class);
-		Set<Class<? extends BadLuckyBlock>> badClasses = reflections.getSubTypesOf(BadLuckyBlock.class);
-
-		goodClasses.forEach(clazz -> {
-			try {
-				goodLuckyBlocks.add(clazz.newInstance());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
-		neutralClasses.forEach(clazz -> {
-			try {
-				neutralLuckyBlocks.add(clazz.newInstance());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
-		badClasses.forEach(clazz -> {
-			try {
-				badLuckyBlocks.add(clazz.newInstance());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
+		manageBlockType(GoodLuckyBlock.class, "good", goodLuckyBlocks);
+		manageBlockType(BadLuckyBlock.class, "bad", badLuckyBlocks);
+		manageBlockType(NeutralLuckyBlock.class, "neutral", neutralLuckyBlocks);
+		
 		getServer().getPluginManager().registerEvents(new GrenadeManager(), this);
 		new CompassTimer().runTaskTimer(this, 40, 10);
 	}
@@ -135,6 +109,27 @@ public class LuckyBlocks extends JavaPlugin {
 		loc.clone().add(-1, 2, -1).getBlock().setType(m);
 		loc.clone().add(0, 2, 1).getBlock().setType(m);
 		loc.clone().add(0, 2, -1).getBlock().setType(m);
+	}
+	
+	public static void manageBlockType(Class<?> clazz, String name, List<LuckyBlockAbstract> list) {
+		try {
+			String dir = clazz.getProtectionDomain().getCodeSource().getLocation().getFile().replaceAll("%20", " ");
+			if (dir.endsWith(".class"))
+				dir = dir.substring(0, dir.lastIndexOf('!'));
 
+			if (dir.startsWith("file:/"))
+				dir = dir.substring(UniversalUtils.getOs() == UniversalUtils.OS.LINUX ? 5 : 6);
+
+			for (Object classDir : UniversalUtils.getClasseNamesInPackage(dir, "com.elikill58.luckyblocks." + name)) {
+				try {
+					LuckyBlockAbstract cheat = (LuckyBlockAbstract) Class.forName(classDir.toString().replaceAll(".class", "")).newInstance();
+					list.add(cheat);
+				} catch (Exception temp) {
+					// on ignore
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

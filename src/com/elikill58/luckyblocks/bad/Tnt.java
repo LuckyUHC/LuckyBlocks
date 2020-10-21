@@ -4,7 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.block.BlockBreakEvent;
 
-public class Tnt implements BadLuckyBlock {
+public class Tnt extends BadLuckyBlock {
 
 	@Override
 	public void run(BlockBreakEvent e) {

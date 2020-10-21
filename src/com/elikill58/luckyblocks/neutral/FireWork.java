@@ -10,9 +10,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
 
-import com.elikill58.luckyblocks.good.GoodLuckyBlock;
-
-public class FireWork implements GoodLuckyBlock {
+public class FireWork extends NeutralLuckyBlock {
 
 	@Override
 	public void run(BlockBreakEvent e){
@@ -21,7 +19,7 @@ public class FireWork implements GoodLuckyBlock {
 		int rt = r.nextInt(4) + 1;
 		int rp = r.nextInt(2) + 1;
 		nbFW++;
-		ItemStack fw = new ItemStack(Material.FIREWORK, nbFW);
+		ItemStack fw = new ItemStack(Material.FIREWORK_ROCKET, nbFW);
 		FireworkMeta fwm = (FireworkMeta) fw.getItemMeta();
 		Type type = Type.BALL;
 		if (rt == 1)

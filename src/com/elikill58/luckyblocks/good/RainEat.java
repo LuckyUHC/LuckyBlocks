@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import com.elikill58.luckyblocks.LuckyBlocks;
 import com.elikill58.luckyblocks.Rain;
 
-public class RainEat implements GoodLuckyBlock {
+public class RainEat extends GoodLuckyBlock {
 	
 	private ArrayList<ItemStack> items = new ArrayList<>();
 	
@@ -19,7 +19,7 @@ public class RainEat implements GoodLuckyBlock {
 		items.clear();
 		items.add(new ItemStack(Material.COOKED_BEEF));
 		items.add(new ItemStack(Material.COOKED_CHICKEN));
-		items.add(new ItemStack(Material.COOKED_FISH));
+		items.add(new ItemStack(Material.COOKED_SALMON));
 		items.add(new ItemStack(Material.COOKED_MUTTON));
 		items.add(new ItemStack(Material.COOKED_RABBIT));
 		items.add(new ItemStack(Material.COOKIE));

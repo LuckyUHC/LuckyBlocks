@@ -4,7 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class Bow implements GoodLuckyBlock {
+public class Bow extends GoodLuckyBlock {
 
 	@Override
 	public void run(BlockBreakEvent e) {

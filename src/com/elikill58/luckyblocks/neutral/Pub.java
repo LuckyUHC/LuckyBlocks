@@ -2,9 +2,7 @@ package com.elikill58.luckyblocks.neutral;
 
 import org.bukkit.event.block.BlockBreakEvent;
 
-import com.elikill58.luckyblocks.good.GoodLuckyBlock;
-
-public class Pub implements GoodLuckyBlock {
+public class Pub extends NeutralLuckyBlock {
 
 	@Override
 	public void run(BlockBreakEvent e) {
