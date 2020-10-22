@@ -1,6 +1,5 @@
 package com.elikill58.luckyblocks.good;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -13,13 +12,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
-import com.elikill58.luckyblocks.LuckyBlocks;
-import com.sk89q.worldedit.CuboidClipboard;
-import com.sk89q.worldedit.EditSession;
-import com.sk89q.worldedit.Vector;
-import com.sk89q.worldedit.bukkit.BukkitWorld;
+import com.elikill58.luckyuhc.core.generator.Generator;
 
-@SuppressWarnings("deprecation")
 public class LittleHouseGen extends GoodLuckyBlock {
 
 	@Override
@@ -35,14 +29,7 @@ public class LittleHouseGen extends GoodLuckyBlock {
 		list.add(Material.AIR);
 		Block b = e.getBlock();
 		int fX = b.getX(), fY = b.getY(), fZ = b.getZ();
-		try {
-			EditSession es = new EditSession(new BukkitWorld(b.getWorld()), 999999999);
-			CuboidClipboard cc = CuboidClipboard
-					.loadSchematic(new File(LuckyBlocks.INSTANCE.getDataFolder() + "/little_house.schematic"));
-			cc.paste(es, new Vector(fX, fY, fZ), false);
-		} catch (Exception exc) {
-			exc.printStackTrace();
-		}
+		Generator.getGenerator().spawnSchematic(b.getLocation(), "little_house.schematic");
 		Location lc = p.getLocation().clone();
 		lc.getBlock().setType(Material.AIR);
 		lc.add(0, 1, 0).getBlock().setType(Material.AIR);
