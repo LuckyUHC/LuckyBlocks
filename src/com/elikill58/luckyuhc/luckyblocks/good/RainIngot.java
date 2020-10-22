@@ -6,6 +6,7 @@ import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
+import com.elikill58.api.game.GameAPI;
 import com.elikill58.luckyblocks.good.GoodLuckyBlock;
 import com.elikill58.luckyuhc.luckyblocks.LuckyBlocks;
 import com.elikill58.luckyuhc.luckyblocks.Rain;
@@ -26,6 +27,6 @@ public class RainIngot extends GoodLuckyBlock {
 		items.add(new ItemStack(Material.IRON_INGOT));
 		items.add(new ItemStack(Material.GOLD_INGOT));
 		items.add(new ItemStack(Material.DIAMOND));
-		new Rain(e.getBlock().getLocation().add(0, 2, 0), e.getBlock().getWorld(), 33, items).runTaskTimer(LuckyBlocks.INSTANCE, 3, 3);
+		new Rain(e.getBlock().getLocation().add(0, 2, 0), e.getBlock().getWorld(), 33, items).runTaskTimer(GameAPI.GAME_PROVIDER, 3, 3);
 	}
 }

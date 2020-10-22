@@ -12,9 +12,10 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import com.elikill58.api.UniversalUtils;
+import com.elikill58.api.game.GameAPI;
+import com.elikill58.api.game.GameProvider;
 import com.elikill58.luckyblocks.CompassTimer;
 import com.elikill58.luckyblocks.LuckyBlockAbstract;
 import com.elikill58.luckyuhc.luckyblocks.bad.BadLuckyBlock;
@@ -23,23 +24,19 @@ import com.elikill58.luckyuhc.luckyblocks.grenade.GrenadeManager;
 import com.elikill58.luckyuhc.luckyblocks.neutral.NeutralLuckyBlock;
 import com.google.common.io.ByteStreams;
 
-public class LuckyBlocks extends JavaPlugin {
-
-	public static LuckyBlocks INSTANCE;
+public class LuckyBlocks {
 	
+	public static File schematicFolder;
 	public static boolean runGrenade = true;
 	private static List<LuckyBlockAbstract> goodLuckyBlocks = new ArrayList<>();
 	private static List<LuckyBlockAbstract> neutralLuckyBlocks = new ArrayList<>();
 	private static List<LuckyBlockAbstract> badLuckyBlocks = new ArrayList<>();
 	
-	@Override
-	public void onEnable() {
-		INSTANCE = this;
-		getDataFolder().mkdir();
-		getDataFolder().mkdirs();
-		try (InputStream in = getResource("little_house.schematic");
-				OutputStream out = new FileOutputStream(
-						new File(getDataFolder().getPath(), "little_house.schematic"))) {
+	public static void init() {
+		GameProvider pl = GameAPI.GAME_PROVIDER;
+		schematicFolder = new File(pl.getDataFolder(), "schematics");
+		try (InputStream in = pl.getResource("little_house.schematic");
+				OutputStream out = new FileOutputStream(new File(schematicFolder, "little_house.schematic"))) {
 			ByteStreams.copy(in, out);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -49,8 +46,8 @@ public class LuckyBlocks extends JavaPlugin {
 		manageBlockType(BadLuckyBlock.class, "bad", badLuckyBlocks);
 		manageBlockType(NeutralLuckyBlock.class, "neutral", neutralLuckyBlocks);
 		
-		getServer().getPluginManager().registerEvents(new GrenadeManager(), this);
-		new CompassTimer().runTaskTimer(this, 40, 10);
+		pl.getServer().getPluginManager().registerEvents(new GrenadeManager(), pl);
+		new CompassTimer().runTaskTimer(pl, 40, 10);
 	}
 	
 	public static boolean runRandomLuckyBlockIfIsGood(BlockBreakEvent e, int luck) {
