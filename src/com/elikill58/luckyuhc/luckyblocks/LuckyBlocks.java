@@ -16,8 +16,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import com.elikill58.api.UniversalUtils;
 import com.elikill58.api.game.GameAPI;
 import com.elikill58.api.game.GameProvider;
-import com.elikill58.luckyblocks.CompassTimer;
-import com.elikill58.luckyblocks.LuckyBlockAbstract;
 import com.elikill58.luckyuhc.luckyblocks.bad.BadLuckyBlock;
 import com.elikill58.luckyuhc.luckyblocks.good.GoodLuckyBlock;
 import com.elikill58.luckyuhc.luckyblocks.grenade.GrenadeManager;
@@ -35,6 +33,7 @@ public class LuckyBlocks {
 	public static void init() {
 		GameProvider pl = GameAPI.GAME_PROVIDER;
 		schematicFolder = new File(pl.getDataFolder(), "schematics");
+		schematicFolder.mkdirs();
 		try (InputStream in = pl.getResource("little_house.schematic");
 				OutputStream out = new FileOutputStream(new File(schematicFolder, "little_house.schematic"))) {
 			ByteStreams.copy(in, out);
