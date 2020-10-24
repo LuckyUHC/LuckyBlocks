@@ -4,8 +4,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import com.elikill58.luckyblocks.bad.BadLuckyBlock;
-
 public class NauseaEffect extends BadLuckyBlock {
 
 	@Override

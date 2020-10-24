@@ -5,8 +5,6 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
 
-import com.elikill58.luckyblocks.bad.BadLuckyBlock;
-
 public class Teleportation extends BadLuckyBlock {
 
 	@Override

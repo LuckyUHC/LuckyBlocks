@@ -10,8 +10,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
 
-import com.elikill58.luckyblocks.neutral.NeutralLuckyBlock;
-
 public class FireWork extends NeutralLuckyBlock {
 
 	@Override

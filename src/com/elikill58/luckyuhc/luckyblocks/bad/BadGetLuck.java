@@ -3,7 +3,6 @@ package com.elikill58.luckyuhc.luckyblocks.bad;
 import org.bukkit.event.block.BlockBreakEvent;
 
 import com.elikill58.api.game.GameAPI;
-import com.elikill58.luckyblocks.bad.BadLuckyBlock;
 
 public class BadGetLuck extends BadLuckyBlock {
 

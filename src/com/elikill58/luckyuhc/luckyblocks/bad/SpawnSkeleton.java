@@ -5,8 +5,6 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.block.BlockBreakEvent;
 
-import com.elikill58.luckyblocks.bad.BadLuckyBlock;
-
 public class SpawnSkeleton extends BadLuckyBlock {
 
 	@Override

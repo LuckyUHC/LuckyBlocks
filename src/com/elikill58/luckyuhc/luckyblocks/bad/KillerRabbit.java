@@ -5,8 +5,6 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Rabbit;
 import org.bukkit.event.block.BlockBreakEvent;
 
-import com.elikill58.luckyblocks.bad.BadLuckyBlock;
-
 public class KillerRabbit extends BadLuckyBlock {
 
 	@SuppressWarnings("deprecation")

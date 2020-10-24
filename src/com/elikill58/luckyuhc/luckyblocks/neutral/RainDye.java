@@ -7,7 +7,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
 import com.elikill58.api.game.GameAPI;
-import com.elikill58.luckyblocks.neutral.NeutralLuckyBlock;
 import com.elikill58.luckyuhc.luckyblocks.LuckyBlocks;
 import com.elikill58.luckyuhc.luckyblocks.Rain;
 

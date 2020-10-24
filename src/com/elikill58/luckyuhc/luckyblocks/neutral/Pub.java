@@ -2,8 +2,6 @@ package com.elikill58.luckyuhc.luckyblocks.neutral;
 
 import org.bukkit.event.block.BlockBreakEvent;
 
-import com.elikill58.luckyblocks.neutral.NeutralLuckyBlock;
-
 public class Pub extends NeutralLuckyBlock {
 
 	@Override

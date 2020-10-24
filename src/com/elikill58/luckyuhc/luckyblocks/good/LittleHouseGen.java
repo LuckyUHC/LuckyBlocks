@@ -12,7 +12,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
-import com.elikill58.luckyblocks.good.GoodLuckyBlock;
 import com.elikill58.luckyuhc.core.generator.Generator;
 
 public class LittleHouseGen extends GoodLuckyBlock {

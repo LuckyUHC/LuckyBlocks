@@ -4,8 +4,6 @@ import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
-import com.elikill58.luckyblocks.good.GoodLuckyBlock;
-
 public class EnchantTable extends GoodLuckyBlock {
 
 	@Override

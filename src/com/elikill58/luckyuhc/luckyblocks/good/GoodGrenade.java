@@ -2,7 +2,6 @@ package com.elikill58.luckyuhc.luckyblocks.good;
 
 import org.bukkit.event.block.BlockBreakEvent;
 
-import com.elikill58.luckyblocks.good.GoodLuckyBlock;
 import com.elikill58.luckyuhc.luckyblocks.LuckyBlocks;
 import com.elikill58.luckyuhc.luckyblocks.grenade.GrenadeType;
 

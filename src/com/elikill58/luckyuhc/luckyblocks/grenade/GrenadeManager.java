@@ -14,8 +14,6 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-import com.elikill58.luckyblocks.grenade.GrenadeType;
-
 public class GrenadeManager implements Listener {
 
 	public static int POWER_EXPLOSION = 8;
